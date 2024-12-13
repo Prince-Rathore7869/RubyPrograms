@@ -2,7 +2,7 @@
 #by alphabet_arr in index and by module getting the index and then by increasing the position of character then storing in result
 #If you want the right shift then Use + opeartor and for left shift use - Operator
 
-def caesar_cipher(string ,position)
+def caesar_cipher(string ,position) 
     alphabet_arr=('a'..'z').to_a
     result=""
     string.each_char do |ch|

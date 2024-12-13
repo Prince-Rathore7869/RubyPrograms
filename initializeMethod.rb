@@ -21,4 +21,5 @@ end
  
  puts student1.rollno
  puts student1.pass
+ puts student2.pass
  
