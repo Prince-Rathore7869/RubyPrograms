@@ -38,7 +38,7 @@ class LongestSubstring
   end
 end
 
-input_str = "pwwkew"
-obj = LongestUniqueSubstring.new(input_str)
+input_str = "pwuiwkeuiw"
+obj = LongestSubstring.new(input_str)
 result = obj.find_longest_unique_substring
 print result
