@@ -34,32 +34,41 @@
 #     total_price: 650
 #   }
 # }
+class Products
 
-def group_products_by_category(products)
-  result = {}
+  def initialize (products)
+    @products=products
+  end
+    def group_products_by_category
+     result = {}
 
-  products.each do |product|
-    category = product[:category]
-    name = product[:name]
-    price = product[:price]
+     @products.each do |product|
+      category = product[:category]
+      name = product[:name]
+      price = product[:price]
 
-    # Initialize category if it doesn't exist
-    result[category] ||= { 
+      result[category] ||= { 
       products: [], 
       total_count: 0, 
       total_price: 0.0
     }
 
-    # Add product to the category
     result[category][:products] << name
     result[category][:total_count] += 1
     result[category][:total_price] += price
-  end
-
-  result
+    end
+    result
+    end
+    def display_name(category)
+     grouped=group_products_by_category
+     if grouped[category]
+       grouped[category][:products]
+     else
+      puts "entered the wrong category"
+     end
+    end
 end
 
-# Test data
 products = [
   { name: "Laptop", price: 1000, category: "Electronics" },
   { name: "Phone", price: 700, category: "Electronics" },
@@ -69,9 +78,11 @@ products = [
   { name: "Microwave", price: 150, category: "Appliances" }
 ]
 
-# Call the method
-grouped_products = group_products_by_category(products)
+display_category=Products.new(products)
+#puts display_category.group_products_by_category
+# print "Enter the category you want to search: "
+# name=gets.chomp
+puts display_category.display_name('Electronics')
 
-# Print the result
-puts grouped_products
+
 
