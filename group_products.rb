@@ -59,6 +59,7 @@ class Products
     end
     result
     end
+    
     def display_name(category)
      grouped=group_products_by_category
      if grouped[category]
