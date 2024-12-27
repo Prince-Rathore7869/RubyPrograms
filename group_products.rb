@@ -34,13 +34,15 @@
 #     total_price: 650
 #   }
 # }
-class Products
-
-  def initialize (products)
-    @products=products
-  end
+module GroupProducts
+ class Products
+     def initialize (products)
+       @products=products
+       @grouped_products = nil
+     end
     def group_products_by_category
-     result = {}
+      return @grouped_products if @grouped_products
+      result = {}
 
      @products.each do |product|
       category = product[:category]
@@ -68,8 +70,8 @@ class Products
       puts "entered the wrong category"
      end
     end
+ end
 end
-
 products = [
   { name: "Laptop", price: 1000, category: "Electronics" },
   { name: "Phone", price: 700, category: "Electronics" },
@@ -79,10 +81,9 @@ products = [
   { name: "Microwave", price: 150, category: "Appliances" }
 ]
 
-display_category=Products.new(products)
+display_category=GroupProducts::Products.new(products)
+
 #puts display_category.group_products_by_category
-# print "Enter the category you want to search: "
-# name=gets.chomp
 puts display_category.display_name('Electronics')
 
 
